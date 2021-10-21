@@ -1,7 +1,5 @@
 //___FILEHEADER___
 
-import NxUI
-
 protocol ___VARIABLE_productName:identifier___ViewProtocol: AnyObject {
     /// Setup a view with a given view model that the view needs to be renderized
     /// - Parameter viewModel: A valid ___VARIABLE_productName:identifier___ViewModel that the view need's to be renderized

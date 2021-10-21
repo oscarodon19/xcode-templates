@@ -24,7 +24,7 @@ SOURCE_FILE="${FILE_TEMPLATES_PATH}/xcode-templates"
 
 if [[ ! -e $SOURCE_FILE ]]; then
   echo "Cloning the directory "
-  git clone git@gitlab.naranja.dev:ncuenta/ios/nx-xcode-templates.git
+  git clone git@github.com:oscarodon19/xcode-templates.git
 else
     cd "$SOURCE_FILE"
     echo "updating the directory "
