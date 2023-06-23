@@ -1,35 +1,73 @@
-USER_HOME=$(echo ~${SUDO_USER})
+#!/bin/bash
 
-echo "home it is : $USER_HOME"
+current_path=$(pwd)
 
-XCODE_PATH="${USER_HOME}/Library/Developer/Xcode"
-cd $XCODE_PATH
+# ----------------------------------------
+# Colors
+# ----------------------------------------
 
-TEMPLATES_PATH=${USER_HOME}/Library/Developer/Xcode/Templates
-FILE_TEMPLATES_PATH="${TEMPLATES_PATH}/File Templates"
+magenta=`tput setaf 5`
+green=`tput setaf 2`
+reset=`tput sgr0`
 
-if [[ ! -e $TEMPLATES_PATH ]]; then
-    echo "Creating Templates directory $TEMPLATES_PATH"
-    mkdir $TEMPLATES_PATH
-fi
+# ----------------------------------------
+# Destination Path's
+# ----------------------------------------
+templates_directory="xcode-templates"
 
-if [[ ! -e $FILE_TEMPLATES_PATH ]]; then
-    echo "Creating File Templates directory $FILE_TEMPLATES_PATH"
-    mkdir -p "${FILE_TEMPLATES_PATH}"
-fi
+source_templates_path=${HOME}/Library/Developer/Xcode/Templates
+templates_path="${source_templates_path}/${templates_directory}"
 
-echo "Copying the templates into the directory $FILE_TEMPLATES_PATH"
-cd "$FILE_TEMPLATES_PATH"
-SOURCE_FILE="${FILE_TEMPLATES_PATH}/xcode-templates"
+# ----------------------------------------
+# Instalation functions
+# ----------------------------------------
 
-if [[ ! -e $SOURCE_FILE ]]; then
-  echo "Cloning the directory "
-  git clone git@github.com:oscarodon19/xcode-templates.git
-else
-    cd "$SOURCE_FILE"
-    echo "updating the directory "
-    git pull
-fi
+function check_for_templates_path() {
+    echo "${green}Checking templates path"
 
+    if [[ ! -e $source_templates_path ]]; then
+        echo "${magenta}Templates directory $source_templates_path doesn't exist. Creating it ${reset}"
+        mkdir $source_templates_path
+    fi
 
+}
 
+function install_templates() {
+    echo "${green}Installing templates into directory: $source_templates_path ${reset}"
+
+    if [[ ! -e $templates_path ]]; then
+        cd $source_templates_path
+        echo "${magenta}Cloning the directory ${reset}"
+        git clone git@github.com:oscarodon19/xcode-templates.git
+    else
+        cd $templates_path
+        echo "${magenta}Updating the directory 🔄 ${reset}"
+        git pull
+    fi
+
+}
+
+function clean_templates_folder() {
+    cd $source_templates_path
+    echo "${magenta}Cleaning templates folder 🧹 ${reset}"
+
+    mv xcode-templates xcode-templates-temp
+    mkdir xcode-templates
+    cp -a xcode-templates-temp/Custom\ Templates xcode-templates-temp/.gitignore xcode-templates-temp/.git xcode-templates
+    rm -Rf xcode-templates-temp
+}
+
+# ----------------------------------------
+# Start instalation
+# ----------------------------------------
+
+check_for_templates_path
+install_templates
+clean_templates_folder
+
+# ----------------------------------------
+# Instalation finished
+# -----------------------------------------
+
+echo "${green}Instalation is done! 🙌 🎉"
+cd $current_path
