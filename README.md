@@ -14,6 +14,18 @@ Lets say that you have to create a view model for an app flow, you only have to 
 
 ## Installation
 
+### Without cloning the repo
+
+All you have to do is open the terminal and execute this command:
+
+    ``` bash
+    curl -SL https://raw.githubusercontent.com/oscarodon19/xcode-templates/master/DownloadCustomTemplates.sh | sh
+    ```
+
+### Cloning the repo
+
+If you prefer to clone the repo you can do it of course! To make the instalation cloning it you have to folllow these steps:
+
 1. Open your terminal.
 
 2. Clone the repository to your local machine:
