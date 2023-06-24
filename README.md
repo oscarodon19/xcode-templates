@@ -25,7 +25,6 @@ Lets say that you have to create a view model for an app flow, you only have to 
 3. Change directory to the project:
 
     ``` bash
-    # Yhis is just an example, use the path where you cloned the project
     cd xcode-templates
     ```
 
@@ -43,7 +42,15 @@ Lets say that you have to create a view model for an app flow, you only have to 
 
 Once you run the [script to install the templates](#installation), you only have to go to Xcode and select File > New > File where you will see your new templates available to be used.
 
-[Image]
+<p align="center">
+    <img width="556" alt="Screenshot 2023-06-23 at 10 57 12" src="https://github.com/oscarodon19/xcode-templates/assets/16545638/fa09a819-4c1a-4c26-8b8d-980f1f7c90bc">
+</p>
+
+<br>
+
+<p align="center">
+    <img width="556" alt="Screenshot 2023-06-23 at 18 21 20" src="https://github.com/oscarodon19/xcode-templates/assets/16545638/ed04ada5-e89f-4221-8e4d-b543771bb862">
+</p>
 
 ## Templates available
 
@@ -54,8 +61,31 @@ Once you run the [script to install the templates](#installation), you only have
 
 ### Add new templates to the installer
 
-If you want you can create your own templates and use the script to install them, all you have to do is create a new subfolder with the `.xctemplate` extension e.g. `[Your Template Name].xctemplate` inside `Custom Templates` folder and them run the script as we indicates on step 4 of the [instalation section](#installation).
+If you want you can create your own templates and install it manually, all you have to do is create a new subfolder with the `.xctemplate` extension e.g. `[Your Template Name].xctemplate` with your templates inside `~/Library/Developer/Xcode/Templates/File Templates` folder. 
 
 ### Remove or modify existing template
 
 If you want to modify or delete an already installed template you haveto go to this folder  `~/Library/Developer/Xcode/Templates/File Templates` and make the corresponding changes.
+
+## Contributing
+Contributions are welcome! If you have any ideas, suggestions, cool templates to add, or bug reports, please [create an issue](https://github.com/oscarodon19/xcode-templates/issues/new) or submit a pull request.
+
+## License
+This project is licensed under the MIT License.
+
+## Contact
+If you have any questions or need further assistance, feel free to reach out to me:
+
+- **Email:** oscarodon19@gmail.com
+- **Twitter:** [@oscar_odon](https://twitter.com/oscar_odon)
+
+## Acknowledgments
+
+I would like to acknowledge the following resources that provided inspiration and guidance during the development of this project:
+
+- [Xcode Project and File Templates](https://www.kodeco.com/26582967-xcode-project-and-file-templates) by Kodeco: This article provided valuable insights into the concept of Xcode project and file templates, which served as the foundation for creating custom templates in this script.
+
+- [Create Custom Xcode Templates](https://medium.com/mindful-engineering/create-custom-xcode-templates-908fdd14fbd8) by Mindful Engineering: This informative article offered a step-by-step guide on creating custom Xcode templates. It helped in understanding the underlying mechanics and best practices for designing and utilizing templates effectively.
+
+I express my gratitude to the authors of these articles for sharing their knowledge and expertise, which greatly contributed to the development of this project.
+
