@@ -1,4 +1,4 @@
-# Custom Swift XcodeTemplates
+# Custom Swift Xcode Templates
 
 ## Description
 
